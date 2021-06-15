@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'Principal',
     'usuarios',
     'paquetesAlimentarios',
-    'asignaciones',
+    
 ]
 
 MIDDLEWARE = [
