@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from asignaciones.views import asignacionIndex
+from paquetesAlimentarios.views import indexPaquetes, crearPaquete, eliminarPaquete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('asignasionindex/',asignacionIndex, name='indexAsignacion')
+    path('asignasion/index',asignacionIndex,name='index'),
+    path('paquetes/MostrarPaquetes',indexPaquetes,name='indexPaquetes'),
+    path('paquetes/MostrarPaquetes/CrearPaquetes', crearPaquete, name='crearPaquete'),
+    path('paquetes/MostrarPaquetes/<int:codigo>',eliminarPaquete,name='eliminarPaquete')
 ]
