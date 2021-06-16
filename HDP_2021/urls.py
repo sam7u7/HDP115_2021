@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from asignaciones.views import asignacionIndex
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('asignasion/index',asignacionIndex,name='index')
 ]
