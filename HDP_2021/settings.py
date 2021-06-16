@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Principal',
     'usuarios',
-    'paqueteAlimentarios',
+    'paquetesAlimentarios',
     'asignaciones',
     
 ]
