@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from asignaciones.views import asignacionIndex
+from usuarios.views import usuarios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     
+=======
+    path('asignasionindex/',asignacionIndex, name='indexAsignacion'),
+
+    path('usuarios/', usuarios, name='usuarios'),
+>>>>>>> 867e632a680f23358525d0d9e50489e102167935
 ]
