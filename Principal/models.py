@@ -23,7 +23,7 @@ class administrador(models.Model):
 class zona(models.Model):
     codigoZona = models.AutoField(primary_key=True)
     departamento = models.CharField(max_length=50)
-    municipio = models.CharField(max_length=50)
+    municipio = models.CharField(max_length=50,unique=True)
 
 
 class asignacion(models.Model):
