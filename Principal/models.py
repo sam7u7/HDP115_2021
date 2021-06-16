@@ -9,22 +9,31 @@ class Persona(models.Model):
     numeroTelefono = models.CharField(max_length=50)
     correoElectronico = models.EmailField(max_length=254)
     rol = models.IntegerField()
+    def __str__(self):
+        return self.nombre
 
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True)
     DUI = models.ForeignKey(Persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
+    def __str__(self):
+
+        return str(self.DUI)
 
 class administrador(models.Model):
     idAdministrador = models.AutoField(primary_key=True)
     DUI = models.ForeignKey(Persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
+    def __str__(self):
+        return str(self.DUI)
 
 class zona(models.Model):
     codigoZona = models.AutoField(primary_key=True)
     departamento = models.CharField(max_length=50)
     municipio = models.CharField(max_length=50,unique=True)
 
+    def __str__(self):
+        return str(self.codigoZona)
 
 class asignacion(models.Model):
     comprobante = models.AutoField(primary_key=True)
@@ -33,6 +42,9 @@ class asignacion(models.Model):
     codigoZona = models.ForeignKey(zona, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     fechaDeAsignacion = models.DateField()
+
+    def __str__(self):
+        return str(self.comprobante)
 
 
 class paqueteAlimentario(models.Model):

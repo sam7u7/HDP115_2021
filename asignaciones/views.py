@@ -8,5 +8,8 @@ def asignacionIndex(request):
     contexto = {
         'asignaciones':asignaciones
     }
-    return render(request,'indexAsignacion.html',)
+    return render(request,'indexAsignacion.html',contexto)
+
+def crearAsignacion(request):
+    return render(request,'crearAsignacion.html')
 
