@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Persona
+from Principal.models import Persona
 
 def usuariosIndex(request):
     personas = Persona.objects.all()
