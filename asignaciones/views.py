@@ -9,3 +9,4 @@ def asignacionIndex(request):
         'asignaciones':asignaciones
     }
     return render(request,'indexAsignacion.html',)
+
