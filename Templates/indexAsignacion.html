@@ -31,11 +31,11 @@
                     <td>{{asignaciones.codigoZona}}</td>
                     <td>{{asignaciones.cantidad}}</td>
                     <td>{{asignaciones.fechaDeAsignacion}}</td>
-                    <td><a href="">Editar</a> <a href="">Eliminar</a></a></td>
+                    <td><a href="{%url 'eliminarAsignacion' asignacion.comprobante %}"></a></td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    {% endblock cuerpo %}
+    {% endblock cuerpo %} 
 </body>
 </html>

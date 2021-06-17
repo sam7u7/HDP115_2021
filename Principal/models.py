@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Persona(models.Model):
-    DUI = models.CharField(primary_key=True,max_length=9,unique=True)
+    id = models.AutoField(primary_key=True)
+    DUI = models.CharField(max_length=9,unique=True)
     nombre = models.CharField(max_length= 50)
     apellido = models.CharField(max_length=50)
     genero = models.CharField(max_length=1)
@@ -16,7 +17,7 @@ class Persona(models.Model):
 
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True)
-    DUI = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    idPesrona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
     def __str__(self):
 
@@ -24,7 +25,7 @@ class usuario(models.Model):
 
 class administrador(models.Model):
     idAdministrador = models.AutoField(primary_key=True)
-    DUI = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    idPersona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
     def __str__(self):
         return str(self.DUI)

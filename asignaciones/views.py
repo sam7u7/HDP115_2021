@@ -28,8 +28,10 @@ def crearAsignacion(request):
             return redirect('indexAsignacion')
     return render(request,'crearAsignacion.html',contexto)
 
-def aditarAsignacion(request,id):
+def eliminarAsignacion(request,id):
     asigna = asignacion.objects.get(id=id)
+    asigna.delete()
+    return redirect('indexAsignacion')
     
 
 
