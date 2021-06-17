@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Persona(models.Model):
-    id = models.AutoField(primary_key=True)
+    idpersona = models.AutoField(primary_key=True)
     DUI = models.CharField(max_length=9,unique=True)
     nombre = models.CharField(max_length= 50)
     apellido = models.CharField(max_length=50)
@@ -10,28 +10,17 @@ class Persona(models.Model):
     numeroTelefono = models.CharField(max_length=50)
     correoElectronico = models.EmailField(max_length=254)
     rol = models.IntegerField()
-   
-    def __str__(self):
-        return str(self.nombre) 
 
 
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True)
-    idPesrona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    idpersona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
-    def __str__(self):
-
-        return str(self.DUI)
 
 class administrador(models.Model):
     idAdministrador = models.AutoField(primary_key=True)
-    idPersona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    idpersona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
-    def __str__(self):
-        return str(self.DUI)
-
-    def __str__(self):
-        return str(self.DUI) 
 
 class zona(models.Model):
     codigoZona = models.AutoField(primary_key=True)

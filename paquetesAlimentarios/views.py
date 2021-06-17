@@ -1,5 +1,4 @@
-from django import forms
-from django.http import request
+
 from django.shortcuts import redirect, render
 from Principal.models import Persona, paqueteAlimentario
 from .formulario import PaqueteForms
