@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django import forms
+from django.shortcuts import redirect, render
 from Principal.models import asignacion 
+from .form import asignacionForm
 # Create your views here.
 
 
@@ -11,5 +13,23 @@ def asignacionIndex(request):
     return render(request,'indexAsignacion.html',contexto)
 
 def crearAsignacion(request):
-    return render(request,'crearAsignacion.html')
+    if request.method == 'GET':
+        form = asignacionForm()
+        contexto = {
+            'form':form
+        }
+    else:
+        form = asignacionForm(request.POST)
+        contexto = {
+            'form':form
+        }
+        if form.is_valid():
+            form.save()
+            return redirect('indexAsignacion')
+    return render(request,'crearAsignacion.html',contexto)
+
+def aditarAsignacion(request,id):
+    asigna = asignacion.objects.get(id=id)
+    
+
 
